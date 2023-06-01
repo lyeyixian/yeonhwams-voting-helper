@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      html, body {
+        height: 200px;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>YeonhwaMS Voting Helper</h1>
+    <p><b>IGN:</b> <span id='ign'></span></p>
+    <p><b>Day:</b> <span id="day"></span></p>
+    <div>
+      <p><b>Input IGN:</b> <input id="ignInput" type="text" name="ign" /></p>
+      <button id='submitIgn'>Save IGN</button>
+    </div>
+    <div>
+      <p><b>Input Day:</b> <input id="dayInput" type="number" name="day" /></p>
+      <button id="submitDay" >Save Day</button>
+    </div>
+    <div id="urlList"></div>
+    <p><b>Total voted:</b> <span id="totalVote"></span></p>
+    <p>
+      <button id='clearUrl'>Clear Url</button>
+    </p>
+    <p>
+      <button id='fillForm'>Fill form (F1)</button>
+      <button id='submitForm'>Submit form (F2)</button>
+      <button id='saveUrl'>Save Url (F3)</button>
+      <button id="download">Download (F4)</button>
+    </p>
+    <script src='action.js'></script>
+  </body>
+</html>

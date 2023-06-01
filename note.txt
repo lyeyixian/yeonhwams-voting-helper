@@ -1,0 +1,24 @@
+메이플 = maple
+classification selection in form
+select[name="ca_name" id="ca_name"]
+option[value="메이플"]
+
+title input in form
+input[name="wr_subject" id="wr_subject"]
+
+content textarea in form (uami.net seems like dont have a name for textarea)
+textarea[id="wr_content" name="wr_content"]
+
+submit button
+button[id="btn_submit"]
+
+
+⚡374연화⚡신규보스카링⚡칼리 완벽구현⚡도원경⚡지속적인버전업⚡스캐⚡
+
+
+
+
+
+https://discord.gg/yeonhwa 
+
+추천인 : <IGN>
