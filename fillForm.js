@@ -1,9 +1,10 @@
 async function fillForm() {
+  const isModooFree = window.location.toString().includes('modoofree')
   const ign = (await chrome.storage.local.get('ign')).ign
   const titleValue =
-    '⚡374연화⚡신규보스카링⚡칼리 완벽구현⚡도원경⚡지속적인버전업⚡스캐⚡'
+    `⚡374연${isModooFree ? ' ' : ''}화⚡신규보스카링⚡칼리 완벽구현⚡도원경⚡지속적인버전업⚡스캐⚡`
   const contentValue =
-    `⚡374연화⚡신규보스카링⚡칼리 완벽구현⚡도원경⚡지속적인버전업⚡스캐⚡\n\n\n\n\n\nhttps://discord.gg/yeonhwa\n\n추천인: ${ign}`
+    `⚡374연${isModooFree ? ' ' : ''}화⚡신규보스카링⚡칼리 완벽구현⚡도원경⚡지속적인버전업⚡스캐⚡\n\n\n\n\n\nhttps://discord.gg/yeon${isModooFree ? ' ' : ''}hwa\n\n추천인: ${ign}`
 
   // change the option of select tag
   const select = document.getElementById('ca_name')
