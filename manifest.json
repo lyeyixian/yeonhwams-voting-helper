@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YeonhwaMS Voting Helper",
-  "description": "Fill in the voting form automatically, save the url of the posts and download the discord post template",
+  "description": "Fill in the voting form with the correct text, save the url of the posts and download the discord post template. All can be done with just a simple few clicks.",
   "version": "1.0",
   "action": {
     "default_popup": "index.html"
