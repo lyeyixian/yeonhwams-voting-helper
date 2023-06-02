@@ -38,6 +38,23 @@ document.getElementById('submitDay').addEventListener('click', () => {
   chrome.storage.local.set({ day }, () => console.log('day saved'))
 })
 
+chrome.storage.local.get('posts', (res) => {
+  document.getElementById('posts').innerText = res.posts || 0
+})
+
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  for (const [key, { oldValue, newValue }] of Object.entries(changes)) {
+    if (key === 'posts') {
+      document.getElementById('posts').innerText = newValue || 0
+    }
+  }
+})
+
+document.getElementById('submitPosts').addEventListener('click', () => {
+  const posts = document.getElementById('postsInput').value
+  chrome.storage.local.set({ posts }, () => console.log('posts saved'))
+})
+
 function getUrlsCountHtmlStr(urls) {
   const map = new Map()
 
@@ -103,11 +120,12 @@ document.getElementById('saveUrl').addEventListener('click', async function () {
 
 async function download() {
   const ign = (await chrome.storage.local.get('ign')).ign || '<IGN>'
-  let day = (await chrome.storage.local.get('day')).day || 1
+  const day = (await chrome.storage.local.get('day')).day || 1
+  const posts = parseInt((await chrome.storage.local.get('posts')).posts || 0)
   const urls = (await chrome.storage.local.get('urls')).urls || []
   urls.sort()
 
-  const title = `${ign} /${day}\uc77c /\ub204\uc801 ${day * 20}`
+  const title = `${ign} /${day}\uc77c /\ub204\uc801 ${posts === -1 ? (day * 20) : (posts + urls.length)}`
   const prepend = `\uc778\uac8c\uc784 \ub2c9\ub124\uc784: ${ign}\n\ub204\uc801 \uc77c\uc218: ${day}\n`
   const content = `${title}\n\n${prepend}\n\n${urls
     .map((url, index) => `${index + 1}. ${url}`)
