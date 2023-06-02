@@ -135,7 +135,7 @@ async function download() {
   const url = URL.createObjectURL(blob)
   chrome.downloads.download({
     url,
-    filename: `yeonhwa-voting-${ign}.txt`,
+    filename: `yeonhwa-voting-${ign}-day${day}.txt`,
   })
 }
 
