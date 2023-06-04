@@ -18,6 +18,11 @@ async function fillForm() {
     title.value = titleValue
   }
 
+  const title2 = document.querySelector('input[type="text"][name="title"][class="wf-input"]')
+  if (title2) {
+    title2.value = titleValue
+  }
+
   const content = document.getElementById('wr_content')
   if (content) {
     content.value = contentValue
@@ -25,13 +30,18 @@ async function fillForm() {
 
   // change the content of the body of an iframe to a p tag
   const iframe1 = document.querySelector('iframe')
+  const p = document.createElement('p')
+  p.innerText = contentValue
   if (iframe1 && window.location.host !== 'android-dev.org') {
     const iframe2 = iframe1.contentWindow.document.getElementById('se2_iframe')
     if (iframe2) {
-      const p = document.createElement('p')
-      p.innerText = contentValue
       iframe2.contentWindow.document.body.appendChild(p)
-    }
+    }    
+  }
+
+  const iframe3 = document.querySelector('div[id="cke_1_contents"] iframe')
+  if (iframe3) {
+    iframe3.contentWindow.document.body.appendChild(p)
   }
 }
 
