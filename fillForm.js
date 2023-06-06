@@ -29,20 +29,20 @@ async function fillForm() {
   }
 
   // change the content of the body of an iframe to a p tag
-  const iframe1 = document.querySelector('iframe')
   const p = document.createElement('p')
   p.innerText = contentValue
+  const iframe3 = document.querySelector('div[id="cke_1_contents"] iframe')
+  if (iframe3) {
+    iframe3.contentWindow.document.body.appendChild(p)
+  }
+
+  const iframe1 = document.querySelector('iframe')
   if (iframe1 && window.location.host !== 'android-dev.org') {
     const iframe2 = iframe1.contentWindow.document.getElementById('se2_iframe')
     if (iframe2) {
       iframe2.contentWindow.document.body.appendChild(p)
     }    
-  }
-
-  const iframe3 = document.querySelector('div[id="cke_1_contents"] iframe')
-  if (iframe3) {
-    iframe3.contentWindow.document.body.appendChild(p)
-  }
+  }  
 }
 
 fillForm()
